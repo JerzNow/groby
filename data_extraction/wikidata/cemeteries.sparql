@@ -1,0 +1,11 @@
+SELECT ?cemetery ?cemeteryLabel ?adm_location ?adm_locationLabel ?location
+WHERE
+{
+  ?cemetery wdt:P31 wd:Q39614;
+             wdt:P17 wd:Q36.
+  OPTIONAL {?cemetery         wdt:P625 ?location.}
+  OPTIONAL {?cemetery         wdt:P131 ?adm_location.}
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pl". }
+}
+LIMIT 5
+

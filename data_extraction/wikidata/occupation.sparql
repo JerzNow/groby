@@ -1,0 +1,11 @@
+SELECT ?person ?personLabel ?occupation ?occupationLabel
+WHERE
+{
+  ?person wdt:P119 ?cemetery.
+  OPTIONAL {?person   wdt:P106 ?occupation. }
+  ?cemetery wdt:P31 wd:Q39614;
+             wdt:P17 wd:Q36;
+             wdt:P131 wd:Q270.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pl". }
+}
+LIMIT 1000

@@ -1,0 +1,16 @@
+SELECT ?person ?personLabel ?name_in_native_language ?cemetery ?cemeteryLabel ?birthDate ?deathDate ?grave_photo
+WHERE
+{
+  ?person wdt:P119 ?cemetery;
+          wdt:P1559 ?name_in_native_language;
+          wdt:P734 ?familyName.
+  OPTIONAL {?person   wdt:P570 ?deathDate. }
+  OPTIONAL {?person   wdt:P569 ?birthDate. }
+  OPTIONAL {?person   wdt:P1442 ?grave_photo. }
+  ?cemetery wdt:P31 wd:Q39614;
+             wdt:P17 wd:Q36;
+             wdt:P131 wd:Q270.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pl". }
+}
+ORDER BY ?familyNameLabel 
+LIMIT 1000
