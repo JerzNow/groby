@@ -4,7 +4,7 @@ WHERE
   ?person wdt:P119 ?cemetery.
   OPTIONAL {?person   wdt:P106 ?occupation. }
   ?cemetery wdt:P31 wd:Q39614;
-#             wdt:P131 wd:Q270;
+             wdt:P131 wd:Q270;
              wdt:P17 wd:Q36.
   SERVICE wikibase:label { bd:serviceParam wikibase:language "pl". }
 }

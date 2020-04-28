@@ -7,5 +7,4 @@ WHERE
   OPTIONAL {?cemetery         wdt:P131 ?adm_location.}
   SERVICE wikibase:label { bd:serviceParam wikibase:language "pl". }
 }
-LIMIT 5
 

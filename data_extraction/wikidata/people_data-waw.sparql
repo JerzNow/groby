@@ -8,7 +8,7 @@ WHERE
   OPTIONAL {?person   wdt:P569 ?birthDate. }
   OPTIONAL {?person   wdt:P1442 ?grave_photo. }
   ?cemetery wdt:P31 wd:Q39614;
-#             wdt:P131 wd:Q270;
-             wdt:P17 wd:Q36.
+             wdt:P17 wd:Q36;
+             wdt:P131 wd:Q270.
   SERVICE wikibase:label { bd:serviceParam wikibase:language "pl". }
 }
