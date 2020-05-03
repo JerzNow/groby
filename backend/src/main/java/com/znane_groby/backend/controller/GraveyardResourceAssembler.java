@@ -16,6 +16,9 @@ class GraveyardResourceAssembler  implements RepresentationModelAssembler<Gravey
 
         return new EntityModel<>(graveyard,
                 linkTo(methodOn(GraveyardController.class).one(graveyard.getId())).withSelfRel(),
-                linkTo(methodOn(GraveyardController.class).all()).withRel("graveyards"));
+                linkTo(methodOn(GraveyardController.class).all()).withRel("graveyards"),
+               // linkTo(methodOn(GraveyardController.class).allFromCity(graveyard.getCity().getId())).withRel("test"),
+                linkTo(methodOn(CityController.class).one(graveyard.getCity().getId())).withRel("city")
+        );
     }
 }

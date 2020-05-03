@@ -1,4 +1,4 @@
-package com.znane_groby.backend.controller;
+package com.znane_groby.backend.util;
 
 
 import org.springframework.http.HttpStatus;
@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public class GraveyardNotFoundAdvice {
+public class ItemNotFoundAdvice {
     @ResponseBody
-    @ExceptionHandler(GraveyardNotFoundException.class)
+    @ExceptionHandler(ItemNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String GraveyardNotFoundHandler(GraveyardNotFoundException ex) {
+    String ItemNotFoundHandler(ItemNotFoundException ex) {
         return ex.getMessage();
     }
 }

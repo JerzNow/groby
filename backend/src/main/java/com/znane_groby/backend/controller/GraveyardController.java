@@ -1,7 +1,10 @@
 package com.znane_groby.backend.controller;
 
 import com.znane_groby.backend.model.Graveyard;
+import com.znane_groby.backend.repository.CityRepository;
 import com.znane_groby.backend.repository.GraveyardRepository;
+import com.znane_groby.backend.util.ItemNotFoundException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -16,14 +19,17 @@ import java.util.stream.StreamSupport;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
+@Slf4j
 @RestController
 public class GraveyardController {
     private final GraveyardRepository repository;
+    private final CityRepository cityRepository;
     private final GraveyardResourceAssembler assembler;
 
-    GraveyardController(GraveyardRepository repository, GraveyardResourceAssembler assembler) {
+    GraveyardController(GraveyardRepository repository, GraveyardResourceAssembler assembler,CityRepository cityRepository) {
         this.assembler = assembler;
         this.repository = repository;
+        this.cityRepository = cityRepository;
     }
 
     // Aggregate root
@@ -40,10 +46,19 @@ public class GraveyardController {
     // Single item
     @GetMapping("/graveyards/{id}")
     EntityModel<Graveyard> one(@PathVariable Long id) {
-
         Graveyard graveyard = repository.findById(id)
-                .orElseThrow(() -> new GraveyardNotFoundException(id));
+                .orElseThrow(() -> new ItemNotFoundException("/graveyards/", id));
+        log.info("graveyard.getCity() " + graveyard.getCity());
         return assembler.toModel(graveyard);
+    }
+    // All graveyards from one city
+    @GetMapping("/graveyards/city/{id}")
+    CollectionModel<EntityModel<Graveyard>> allFromCity(@PathVariable Long id) {
+        List<EntityModel<Graveyard>> graveyards = repository.findByCity(cityRepository.findById(id)).stream()
+                .map(assembler::toModel)
+                .collect(Collectors.toList());
+        return new CollectionModel<>(graveyards,
+                linkTo(methodOn(GraveyardController.class).allFromCity(id)).withSelfRel());
     }
 
     @PostMapping("/graveyards")
@@ -63,10 +78,11 @@ public class GraveyardController {
         Graveyard updatedGraveyard =  repository.findById(id)
                 .map(graveyard -> {
                     graveyard.setName(newGraveyard.getName());
-                    graveyard.setWiki_name(newGraveyard.getWiki_name());
-                    graveyard.setUrl(newGraveyard.getUrl());
+                    graveyard.setWikiName(newGraveyard.getWikiName());
+                    graveyard.setUrl_wiki(newGraveyard.getUrl_wiki());
                     graveyard.setLatitude(newGraveyard.getLatitude());
                     graveyard.setLongitude(newGraveyard.getLongitude());
+                    graveyard.setCity(newGraveyard.getCity());
                     return repository.save(graveyard);
                 })
                 .orElseGet(() -> {
