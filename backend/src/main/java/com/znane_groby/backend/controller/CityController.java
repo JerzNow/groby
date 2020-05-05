@@ -47,39 +47,5 @@ public class CityController {
         return assembler.toModel(city);
     }
 
-    @PostMapping("/cities")
-    ResponseEntity<?> newCity(@RequestBody City newCity) throws URISyntaxException {
-        EntityModel<City> entityModel = assembler.toModel(repository.save(newCity));
 
-        return ResponseEntity
-                .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
-                .body(entityModel);
-
-    }
-
-    @PutMapping("/cities/{id}")
-    ResponseEntity<?> replaceCity(@RequestBody City newCity, @PathVariable Long id)
-            throws URISyntaxException {
-
-        City updatedCity =  repository.findById(id)
-                .map(city -> {
-                    city.setName(newCity.getName());
-                    city.setWikiName(newCity.getWikiName());
-                    return repository.save(city);
-                })
-                .orElseGet(() -> {
-                    newCity.setId(id);
-                    return repository.save(newCity);
-                });
-        EntityModel<City> entityModel = assembler.toModel(updatedCity);
-
-        return ResponseEntity
-                .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
-                .body(entityModel);
-    }
-
-    @DeleteMapping("/cities/{id}")
-    void deleteCity(@PathVariable Long id) {
-        repository.deleteById(id);
-    }
 }

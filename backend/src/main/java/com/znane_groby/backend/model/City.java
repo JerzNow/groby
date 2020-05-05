@@ -32,7 +32,7 @@ public class City  extends RepresentationModel<City> {
     @Override
     public String toString() {
         return String.format(
-                "Graveyard[id=%d, wiki_name='%s', name='%s']",
+                "City[id=%d, wiki_name='%s', name='%s']",
                 id, wikiName, name);
     }
 

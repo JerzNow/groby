@@ -79,7 +79,6 @@ public class GraveyardController {
                 .map(graveyard -> {
                     graveyard.setName(newGraveyard.getName());
                     graveyard.setWikiName(newGraveyard.getWikiName());
-                    graveyard.setUrl_wiki(newGraveyard.getUrl_wiki());
                     graveyard.setLatitude(newGraveyard.getLatitude());
                     graveyard.setLongitude(newGraveyard.getLongitude());
                     graveyard.setCity(newGraveyard.getCity());
