@@ -120,7 +120,7 @@ public class LoadDatabase {
 
 
 //        citiesMap.entrySet().stream()
-//                .forEach(e -> log.info("Preloading " + cityRepository.save(e.getValue())));
+//                .forEach(e -> log.info("Preloading {}", cityRepository.save(e.getValue())));
 //        graveyardsMap.entrySet().stream()
 //                .forEach(e -> log.info("Preloading " + graveyardRepository.save(e.getValue())));
 
