@@ -8,11 +8,12 @@
         <version>2.3.0.M3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.znane_groby</groupId>
-    <artifactId>backend</artifactId>
+    <groupId>net.nornick.groby</groupId>
+    <artifactId>GrobyApp</artifactId>
+
     <version>0.0.1-SNAPSHOT</version>
-    <name>backend</name>
-    <description>Backend for znane_groby app</description>
+    <name>Groby</name>
+    <description>Application for finding famous people graves</description>
 
     <properties>
         <java.version>14</java.version>
@@ -52,6 +53,11 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>4.1</version>
         </dependency>
     </dependencies>
 

@@ -1,4 +1,4 @@
-package com.znane_groby.backend.util;
+package net.nornick.groby.util;
 
 public class ItemNotFoundException extends RuntimeException {
     public ItemNotFoundException(String path, Long id) {

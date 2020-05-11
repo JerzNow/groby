@@ -1,4 +1,4 @@
-package com.znane_groby.backend.util;
+package net.nornick.groby.util;
 
 
 import org.springframework.http.HttpStatus;
