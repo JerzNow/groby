@@ -10,7 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Cemetery extends RepresentationModel<Cemetery> {
+public class Cemetery  {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -19,6 +19,8 @@ public class Cemetery extends RepresentationModel<Cemetery> {
     private String name;
     @ManyToOne
     private City city;
+    @ManyToOne
+    private Photo photo;
 
     private double longitude;
     private double latitude;
