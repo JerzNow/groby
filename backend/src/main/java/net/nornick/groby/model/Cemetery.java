@@ -1,7 +1,6 @@
 package net.nornick.groby.model;
 
 import lombok.*;
-import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
 

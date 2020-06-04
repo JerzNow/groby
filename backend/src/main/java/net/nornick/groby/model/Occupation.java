@@ -9,6 +9,8 @@ import javax.persistence.*;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Occupation {
     @Id

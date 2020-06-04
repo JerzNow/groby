@@ -6,8 +6,6 @@ import net.nornick.groby.repository.CemeteryRepository;
 import net.nornick.groby.repository.CityRepository;
 import net.nornick.groby.util.ItemNotFoundException;
 import org.springframework.web.bind.annotation.*;
-
-import java.net.URISyntaxException;
 import java.util.List;
 
 @Slf4j

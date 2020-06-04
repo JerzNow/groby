@@ -28,8 +28,8 @@ class UploadSampleData {
                 .city(city)
                 .build();
 
-        log.info("Preloading " + cityRepository.save(city));
-        log.info("Preloading " + cemeteryRepository.save(powazki));
-        log.info("Preloading " + cemeteryRepository.save(powazkiWojskowe));
+        log.debug("Preloading " + cityRepository.save(city));
+        log.debug("Preloading " + cemeteryRepository.save(powazki));
+        log.debug("Preloading " + cemeteryRepository.save(powazkiWojskowe));
     }
 }

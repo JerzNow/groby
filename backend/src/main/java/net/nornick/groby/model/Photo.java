@@ -1,10 +1,7 @@
 package net.nornick.groby.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -18,10 +15,32 @@ public class Photo {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    FileFormat fileFormat;
+    @Column(length=400)
+    private String url;
+    //FileFormat fileFormat;
     int height;
     int width;
+    @ManyToOne
+    @ToString.Exclude
+    private Person personPhoto;
+    @ManyToOne
+    @ToString.Exclude
+    private Person gravePhoto;
 
+    @ToString.Include
+    public String printPersonPhoto() {
+        if (personPhoto != null)
+            return "Person: " + personPhoto.getFirstName()+personPhoto.getLastName();
+        else
+            return "";
+    }
 
-
+    @ToString.Include
+    public String printGravePhoto() {
+        if (gravePhoto != null)
+            return "Grave: " + gravePhoto.getFirstName()+gravePhoto.getLastName();
+        else
+            return "";
+    }
 }
+

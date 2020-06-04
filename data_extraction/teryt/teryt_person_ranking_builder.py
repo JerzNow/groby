@@ -33,7 +33,7 @@ class StreetPersonInfo:
     def wiki_id(self):
         sname=self.sec_name_nom.split(' ')[0]
         mname=self.main_name_nom
-        return sname+'_'+mname
+        return sname+' '+mname
 
 
     def __str__(self):

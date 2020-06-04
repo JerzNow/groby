@@ -15,6 +15,7 @@ public class ReadCSV {
     public List<String[]> readCSV(String fileName) throws Exception {
         InputStream inputStream = getClass()
                 .getClassLoader().getResourceAsStream(fileName);
+        assert inputStream != null;
         return parseCSV(new InputStreamReader(inputStream));
     }
 
