@@ -1,7 +1,6 @@
 package net.nornick.groby.repository;
 
 import net.nornick.groby.model.FileFormat;
-
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 import java.util.stream.Stream;

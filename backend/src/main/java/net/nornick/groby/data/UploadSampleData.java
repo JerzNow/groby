@@ -1,4 +1,4 @@
-package net.nornick.groby.configuration;
+package net.nornick.groby.data;
 
 import lombok.extern.slf4j.Slf4j;
 import net.nornick.groby.model.Cemetery;

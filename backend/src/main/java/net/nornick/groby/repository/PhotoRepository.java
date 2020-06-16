@@ -1,6 +1,5 @@
 package net.nornick.groby.repository;
 
-import net.nornick.groby.model.Person;
 import net.nornick.groby.model.Photo;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

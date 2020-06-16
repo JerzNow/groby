@@ -1,4 +1,4 @@
-package net.nornick.groby.configuration;
+package net.nornick.groby.data;
 
 import net.nornick.groby.repository.*;
 import lombok.extern.slf4j.Slf4j;
