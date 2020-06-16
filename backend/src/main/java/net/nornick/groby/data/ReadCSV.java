@@ -1,4 +1,4 @@
-package net.nornick.groby.configuration;
+package net.nornick.groby.data;
 
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;

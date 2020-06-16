@@ -1,4 +1,4 @@
-package net.nornick.groby.configuration;
+package net.nornick.groby.data;
 
 import lombok.extern.slf4j.Slf4j;
 import net.nornick.groby.model.Cemetery;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 @Slf4j
-class UploadCemeteriesCSV {
+class UploadCemeteries {
     //Uploaded file format
     //cemetery,cemeteryLabel,adm_location,adm_locationLabel,location
     //http://www.wikidata.org/entity/Q8510713,Cmentarz Zasłużonych Wielkopolan,http://www.wikidata.org/entity/Q268,Poznań,Point(16.9289 52.4144)

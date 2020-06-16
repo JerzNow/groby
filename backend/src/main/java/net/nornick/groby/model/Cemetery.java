@@ -1,7 +1,6 @@
 package net.nornick.groby.model;
 
 import lombok.*;
-import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
 
@@ -10,7 +9,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Cemetery extends RepresentationModel<Cemetery> {
+public class Cemetery  {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -19,6 +18,8 @@ public class Cemetery extends RepresentationModel<Cemetery> {
     private String name;
     @ManyToOne
     private City city;
+    @ManyToOne
+    private Photo photo;
 
     private double longitude;
     private double latitude;
